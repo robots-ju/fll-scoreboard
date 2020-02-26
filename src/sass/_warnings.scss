@@ -1,0 +1,15 @@
+.scoreboard__warnings {
+  position: fixed;
+  z-index: 30;
+  top: 80px;
+  left: 60px;
+}
+
+.scoreboard__warning {
+  background: $scoreboard-color-warning;
+  color: $scoreboard-color-text-light;
+  font-weight: bold;
+  padding: 2em;
+  box-shadow: 0 0 5px $scoreboard-color-shadow;
+  margin-bottom: 0.5em;
+}

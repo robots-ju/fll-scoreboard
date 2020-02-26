@@ -1,0 +1,32 @@
+@import "~materialize-css/sass/components/color-variables";
+@import "~materialize-css/sass/components/variables";
+@import "~materialize-css/sass/components/global";
+@import "~materialize-css/sass/components/navbar";
+@import "~materialize-css/sass/components/waves";
+@import "~materialize-css/sass/components/sidenav";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "variables";
+@import "reset";
+@import "noscript";
+@import "header";
+@import "footer";
+@import "overlay";
+@import "field";
+@import "warnings";
+@import "tools";
+
+.sidenav {
+  display: flex;
+  flex-direction: column;
+
+  .expand {
+    flex-grow: 1;
+  }
+}
+
+.textpage {
+  width: 500px;
+  max-width: 100%;
+  margin: 100px auto; // Top padding so that it doesn't go under the header
+}

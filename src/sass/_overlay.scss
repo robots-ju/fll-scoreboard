@@ -1,0 +1,181 @@
+.scoreboard__overlay {
+  position: fixed;
+  z-index: 300;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: $scoreboard-overlay-width;
+  max-width: 100%;
+  background: $scoreboard-color-background;
+  transition-property: top;
+  transition-duration: 0.5s;
+  box-shadow: 0 0 2px $scoreboard-color-shadow;
+  overflow: hidden;
+  transform: translateX($scoreboard-overlay-width);
+  transition: $scoreboard-transition-overlay-open transform;
+
+  &.--open {
+    transform: translateX(0);
+  }
+}
+
+.scoreboard__overlay__mission {
+  position: absolute;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: auto;
+  transform: translateX(0);
+  transition: $scoreboard-transition-overlay-open transform;
+
+  &.--hidden-previous {
+    transform: translateX(-100%);
+  }
+
+  &.--hidden-next {
+    transform: translateX(100%);
+  }
+
+  .content {
+    width: 800px;
+    max-width: 100%;
+    margin: 50px auto 0;
+    padding: 20px 50px;
+    background: $scoreboard-color-background;
+
+    @media (max-width: 1200px) {
+      margin-top: 100px;
+    }
+
+    .images {
+      height: 300px;
+      display: flex;
+      align-items: stretch;
+
+      @media (max-height: 800px) {
+        height: 150px;
+      }
+
+      .image {
+        flex-grow: 1;
+        background-size: cover;
+        background-position: center center;
+      }
+
+      &:empty {
+        display: none;
+      }
+    }
+
+    .task {
+      margin: 20px 0;
+    }
+
+    label {
+      cursor: pointer;
+      display: block;
+
+      input[type=checkbox] {
+        display: none;
+      }
+
+      .field-box {
+        border: 2px solid $scoreboard-color-overlay-mission-border;
+
+        .images {
+          margin: 5px;
+        }
+
+        .description {
+          padding: 20px;
+          display: flex;
+          align-items: center;
+
+          .title {
+            flex-grow: 1;
+          }
+
+          .points {
+            font-weight: bold;
+            color: $scoreboard-color-text-grey;
+            font-size: 1.2em;
+            margin-left: 20px;
+          }
+        }
+
+        .fake-checkbox {
+          $checkbox-size: 40px;
+
+          flex-shrink: 0;
+          width: $checkbox-size;
+          height: $checkbox-size;
+          border-radius: 3px;
+          background: $scoreboard-color-overlay-mission-border;
+          margin-right: 20px;
+          text-align: center;
+          font-size: 25px;
+          line-height: $checkbox-size;
+          color: transparent;
+        }
+
+        &.active {
+          border-color: var(--challenge-main-color);
+
+          .fake-checkbox, .points {
+            color: var(--challenge-main-color);
+          }
+        }
+
+        .numbers-input {
+          display: flex;
+          flex-wrap: wrap;
+
+          .number {
+            flex-grow: 1;
+            border: 2px solid $scoreboard-color-overlay-mission-border;
+            padding: 20px 10px;
+            border-bottom: none;
+            text-align: center;
+
+            &:last-of-type {
+              border-right: none;
+            }
+
+            .digit {
+              font-size: 2em;
+            }
+
+            .points {
+              font-weight: bold;
+              color: $scoreboard-color-text-grey;
+              font-size: 1.2em;
+            }
+
+            &.active {
+              border-color: var(--challenge-main-color);
+
+              .points {
+                color: var(--challenge-main-color);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .options.multiple label {
+      display: inline-block;
+      width: 50%;
+    }
+
+    .tasks.multiple .images {
+      height: 200px; // restrict if many items
+
+      @media (max-height: 800px) {
+        height: 100px;
+      }
+    }
+  }
+}

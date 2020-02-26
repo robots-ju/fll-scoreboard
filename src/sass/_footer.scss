@@ -1,0 +1,18 @@
+.scoreboard__footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #aaa;
+  padding: 20px;
+  background: $scoreboard-color-background;
+  text-align: center;
+
+  @media (max-width: 1400px) {
+    position: static;
+  }
+
+  a {
+    color: #888;
+  }
+}

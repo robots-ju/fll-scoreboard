@@ -1,0 +1,109 @@
+.scoreboard__header {
+  position: fixed;
+  z-index: 500;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: $scoreboard-color-background;
+  box-shadow: 0 0 2px $scoreboard-color-shadow;
+  font-weight: bold;
+  flex-wrap: wrap;
+
+  @media (max-width: 1400px) {
+    font-size: 0.7em;
+
+    .scoreboard__header__title, .overlay-nav.active {
+      flex-grow: 1;
+    }
+
+    .start-overlay {
+      flex-grow: 2;
+    }
+  }
+
+  @media (max-width: 700px) {
+    h1.header-block {
+      display: none;
+    }
+
+    .score {
+      flex-grow: 1;
+    }
+  }
+
+  &, .overlay-nav {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .scoreboard__header__title {
+    flex-grow: 1;
+    font-size: 1.6em;
+
+    em {
+      font-style: normal;
+      margin-right: 0.5em;
+      color: #999;
+    }
+  }
+
+  .overlay-nav {
+    width: 0;
+    overflow: hidden;
+    transition: $scoreboard-transition-overlay-open width;
+
+    &.active {
+      width: $scoreboard-overlay-width;
+    }
+
+    button {
+      flex-grow: 1;
+    }
+  }
+
+  .header-block {
+    display: flex;
+    margin: 0;
+    align-items: center;
+    min-height: 50px;
+    padding: 0 20px;
+  }
+
+  button {
+    border: none;
+    font-weight: inherit;
+    cursor: pointer;
+    background: var(--challenge-main-color);
+    color: $scoreboard-color-text-light;
+    font-size: 1.2em;
+
+    &.header-block {
+      display: block; // flex prevents the use of icons, and for whatevery reason buttons stay vertically aligned as block too
+    }
+
+    &:hover {
+      filter: brightness(90%);
+    }
+  }
+
+  .score {
+    background: var(--challenge-main-color);
+    color: $scoreboard-color-text-light;
+    font-size: 2em;
+    padding: 0 50px;
+    text-align: center;
+  }
+
+  button.start-overlay {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  img {
+    max-height: 40px;
+    margin: 5px 20px 0 0;
+  }
+}

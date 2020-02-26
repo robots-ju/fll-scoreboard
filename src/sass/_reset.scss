@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  min-height: 100%;
+}
+
+body {
+  color: $scoreboard-color-text-dark;
+  font-family: Roboto, Arial, sans-serif;
+  background: $scoreboard-color-background;
+}
+
+button, input {
+  font-family: inherit;
+  font-size: 1em;
+}

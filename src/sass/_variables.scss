@@ -1,0 +1,18 @@
+$scoreboard-color-background: white !default;
+$scoreboard-color-shadow: rgba(black, 0.6) !default;
+$scoreboard-color-text-dark: #333 !default;
+$scoreboard-color-text-light: white !default;
+$scoreboard-color-text-grey: #ccc !default;
+
+$scoreboard-color-theme-yellow: #e7aa30; // Average yellow from Hydro Dynamics logo
+
+$scoreboard-color-overlay-mission-border: #efefef !default;
+
+$scoreboard-color-warning: rgba($scoreboard-color-theme-yellow, 0.9) !default;
+
+$scoreboard-image-path: './' !default;
+
+$scoreboard-overlay-width: 650px !default;
+
+$scoreboard-transition-overlay-open: 0.2s !default;
+$scoreboard-transition-mission-pointer: 0.2s !default;

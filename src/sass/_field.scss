@@ -1,0 +1,130 @@
+.scoreboard__field {
+  margin-top: 50px;
+  position: relative;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  font-size: 1400px;
+  width: 1em;
+  height: 0.58em;
+
+  @media (min-width: 1900px) {
+    &.--overlay-open {
+      margin-left: -100px;
+    }
+  }
+
+  @media (min-width: 1460px) and (max-width: 1900px) {
+    &.--overlay-open {
+      margin-left: -340px;
+    }
+  }
+
+  @media (min-width: 1024px) and (max-width: 1460px) {
+    &.--overlay-open {
+      margin-left: -250px;
+    }
+  }
+
+  @media (max-width: 1900px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 1460px) {
+    font-size: 1024px;
+  }
+
+  @media (max-width: 1200px) {
+    margin-top: 100px;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 800px;
+  }
+
+  @media (max-width: 800px) {
+    font-size: 640px;
+  }
+
+  @media (max-width: 640px) {
+    font-size: 360px;
+  }
+}
+
+.scoreboard__field__mission {
+  position: absolute;
+  cursor: pointer;
+  font-size: 16px;
+
+  .pointer {
+    position: absolute;
+    z-index: 20;
+    border-radius: 100%;
+    text-align: center;
+    font-weight: bold;
+
+    $pointer-normal-size: 50px;
+    width: $pointer-normal-size;
+    height: $pointer-normal-size;
+    top: $pointer-normal-size/-2;
+    left: $pointer-normal-size/-2;
+    line-height: $pointer-normal-size;
+    background: var(--challenge-missions-color);
+    color: $scoreboard-color-text-light;
+
+    &, .score, .number {
+      transition: $scoreboard-transition-mission-pointer all;
+    }
+
+    .score {
+      font-size: 1px;
+    }
+
+    .number {
+      line-height: 50px;
+    }
+
+    &.scoring {
+      $pointer-scoring-size: 80px;
+      width: $pointer-scoring-size;
+      height: $pointer-scoring-size;
+      top: $pointer-scoring-size/-2;
+      left: $pointer-scoring-size/-2;
+      background: var(--challenge-scoring-color);
+      line-height: 50px;
+
+      .score {
+        font-size: 40px;
+        margin-top: 8px;
+      }
+
+      .number {
+        font-size: 12px;
+        line-height: 0;
+        font-weight: normal;
+      }
+    }
+
+    &.negative {
+      background: var(--challenge-penalties-color);
+    }
+  }
+
+  .label {
+    position: absolute;
+    display: none;
+    z-index: 10;
+    right: 0;
+    background: $scoreboard-color-background;
+    padding: 5px 20px;
+    padding-right: 40px;
+    border-radius: 2px;
+    box-shadow: 0 0 2px $scoreboard-color-shadow;
+    top: -1em;
+  }
+
+  &:hover .label {
+    display: block;
+  }
+}
