@@ -27,7 +27,7 @@ export default {
       },
     }, [
       years.map(year => m(Link, {
-        href: '/' + year.data.meta.year,
+        href: '/' + year.data.meta.slug,
       }, year.data.meta.year + ' ' + year.data.meta.title)),
       m(Link, {
         href: '/credits',

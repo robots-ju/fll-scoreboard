@@ -3,6 +3,7 @@ import {Year} from '../interfaces/ChallengeYear';
 const data: Year = {
   meta: {
     year: 2018,
+    slug: 'into-orbit',
     title: 'Into Orbit',
     hashtag: '#IntoOrbit',
     logo: '2018/into-orbit-logo.png',

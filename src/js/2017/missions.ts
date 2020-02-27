@@ -3,6 +3,7 @@ import {Year} from "../interfaces/ChallengeYear";
 const data: Year = {
   meta: {
     year: 2017,
+    slug: 'hydro-dynamics',
     title: 'Hydro Dynamics',
     hashtag: '#HydroDynamics',
     logo: '2017/hydro-dynamics-logo.png',

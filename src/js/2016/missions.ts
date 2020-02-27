@@ -3,6 +3,7 @@ import {Year} from '../interfaces/ChallengeYear';
 const data: Year = {
   meta: {
     year: 2016,
+    slug: 'animal-allies',
     title: 'Animal Allies',
     hashtag: '#AnimalAllies',
     logo: '2016/animal-allies-logo.png',

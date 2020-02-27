@@ -3,6 +3,7 @@ import {Year} from '../interfaces/ChallengeYear';
 const data: Year = {
   meta: {
     year: 2019,
+    slug: 'city-shaper',
     title: 'City Shaper',
     hashtag: '#CityShaper',
     logo: '2019/city-shaper-logo.png',

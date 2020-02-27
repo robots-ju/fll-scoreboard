@@ -45,7 +45,7 @@ const routes = {
   '/': createResolver({
     oninit() {
       // Redirect to the first year automatically
-      m.route.set('/' + years[0].data.meta.year);
+      m.route.set('/' + years[0].data.meta.slug);
     },
     view() {
       return null;
@@ -55,8 +55,8 @@ const routes = {
 };
 
 years.forEach(year => {
-  routes['/' + year.data.meta.year] = createResolver(StandaloneScoreboard, {
-    key: year.data.meta.year, // Prevent Mithril re-using a scoreboard and its scorer/hasher
+  routes['/' + year.data.meta.slug] = createResolver(StandaloneScoreboard, {
+    key: year.data.meta.slug, // Prevent Mithril re-using a scoreboard and its scorer/hasher
     ...year,
   });
 });

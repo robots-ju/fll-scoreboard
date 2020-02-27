@@ -1,6 +1,7 @@
 export interface Year {
   meta: {
     year: number
+    slug: string
     title: string
     hashtag: string
     logo: string
