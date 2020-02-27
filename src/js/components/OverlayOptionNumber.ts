@@ -11,6 +11,20 @@ export default {
     let inputs = [];
 
     for (let number = 0; number <= option.max; number++) {
+      let pointsForThisOption = null;
+
+      if (option.points) {
+        pointsForThisOption = option.points * number;
+      }
+
+      if (option.points_list) {
+        if (number > 0) {
+          pointsForThisOption = option.points_list[number - 1];
+        } else {
+          pointsForThisOption = 0;
+        }
+      }
+
       inputs.push(m('.number', {
         className: missions[option.handle] === number ? ' active' : '',
         onclick() {
@@ -18,7 +32,7 @@ export default {
         },
       }, [
         m('.digit', number),
-        m('.points', (option.points > 0 ? '+' : '') + (option.points * number)),
+        pointsForThisOption !== null ? m('.points', (pointsForThisOption > 0 ? '+' : '') + pointsForThisOption) : null,
       ]));
     }
 
@@ -31,7 +45,7 @@ export default {
         }),
         m('.description', [
           m('span.title', trans(option.title)),
-          m('span.points', (option.points > 0 ? '+' : '') + option.points),
+          option.points && m('span.points', (option.points > 0 ? '+' : '') + option.points),
         ]),
         m('.numbers-input', inputs),
       ]),

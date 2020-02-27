@@ -19,10 +19,10 @@ export interface Year {
 export interface Mission {
   number: number
   title: TranslatedText
-  description: TranslatedText
+  description?: TranslatedText
   position: Position
   tasks: Task[]
-  constraints: TranslatedText[]
+  constraints?: TranslatedText[]
 }
 
 export interface Position {
@@ -43,7 +43,8 @@ export interface Option {
   title: TranslatedText
   handle: string
   type: "boolean" | "number"
-  points: number
+  points?: number
+  points_list?: number[]
   max?: number
   images: string[]
 }

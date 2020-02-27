@@ -34,7 +34,7 @@ export default {
         m('.description', [
           m('span.fake-checkbox', icon('check')),
           m('span.title', trans(option.title)),
-          m('span.points', '+' + option.points),
+          option.points && m('span.points', '+' + option.points),
         ]),
       ]),
     ]);

@@ -20,7 +20,7 @@ export default {
       className,
     }, m('.content', [
       m('h1', (mission.number === null ? '' : ('M' + mission.number + ' ')) + trans(mission.title)),
-      m('p', trans(mission.description)),
+      mission.description && m('p', trans(mission.description)),
       m('.tasks', {
         className: mission.tasks.length > 1 ? ' multiple' : '',
       }, mission.tasks.map(
@@ -30,7 +30,7 @@ export default {
           missions,
         })
       )),
-      m('ul', mission.constraints.map(
+      mission.constraints && m('ul', mission.constraints.map(
         (constraint, key) => m('li', {
           key,
         }, trans(constraint))

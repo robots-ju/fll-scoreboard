@@ -10,6 +10,7 @@ export default {
     // Current game state
     const missions = vnode.attrs.missions as MissionObject;
 
+    let scoring = false;
     let score = 0;
 
     mission.tasks.forEach(
@@ -19,12 +20,24 @@ export default {
             switch (option.type) {
               case 'boolean':
                 if (missions[option.handle]) {
-                  score += option.points;
+                  scoring = true;
+
+                  if (option.points) {
+                    score += option.points;
+                  }
                 }
                 break;
               case 'number':
                 if (missions[option.handle]) {
-                  score += missions[option.handle] * option.points;
+                  scoring = true;
+
+                  if (option.points) {
+                    score += missions[option.handle] * option.points;
+                  }
+
+                  if (option.points_list) {
+                    score += option.points_list[missions[option.handle] - 1];
+                  }
                 }
                 break;
               default:
@@ -45,9 +58,9 @@ export default {
       },
     }, [
       m('.pointer', {
-        className: (score !== 0 ? ' scoring' : '') + (score < 0 ? ' negative' : ''),
+        className: (scoring ? ' scoring' : '') + (score < 0 ? ' negative' : ''),
       }, [
-        m('.score', score !== 0 ? score : ''),
+        m('.score', score !== 0 ? score : (scoring ? m('i.fas.fa-check') : '')),
         m('.number', mission.number === null ? 'PE' : ('M' + mission.number)),
       ]),
       m('.label', trans(mission.title)),
