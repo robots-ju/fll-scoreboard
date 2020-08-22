@@ -46,6 +46,16 @@ export interface Option {
   type: "boolean" | "number"
   points?: number
   points_list?: number[]
+  colors_list?: (
+    'blue' |
+    'dark-green' |
+    'grey' |
+    'light-green' |
+    'magenta' |
+    'orange' |
+    'red' |
+    'yellow'
+    )[]
   max?: number
   images: string[]
 }

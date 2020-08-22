@@ -10,7 +10,7 @@ export default {
     const option = vnode.attrs.option as Option;
     const missions = vnode.attrs.missions as MissionObject;
 
-    return m('label.options', [
+    return m('label.option', [
       m('input[type=checkbox]', {
         checked: missions[option.handle],
         onchange() {

@@ -37,14 +37,14 @@ export default {
           '.',
         ]),
         m('p', [
-          'Logo and field images come from for the ',
+          'Logos and images come from for the ',
           m('a', {
             href: 'http://www.firstlegoleague.org/challenge',
           }, 'FIRST® LEGO® League'),
           ' Robot Game material.',
         ]),
         m('p', [
-          'Mission illustrations come from the ',
+          'Older mission illustrations come from the ',
           m('a', {
             href: 'https://www.first-lego-league.org/en/season/robot-game/missions.html',
           }, 'HANDS on TECHNOLOGY'),
@@ -54,7 +54,7 @@ export default {
           'English mission descriptions are copied from the official handbook.',
         ]),
         m('p', [
-          'French mission descriptions are copied from the EPFL handbook.',
+          'French mission descriptions are copied from the EPFL handbook (2016-2019) or HANDS on TECHNOLOGY handbook (2020).',
         ]),
       ]),
     ];

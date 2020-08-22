@@ -70,12 +70,16 @@
     }
 
     .task {
-      margin: 20px 0;
+      margin-bottom: 20px;
     }
 
-    label {
-      cursor: pointer;
-      display: block;
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .option {
+      width: 100%;
 
       input[type=checkbox] {
         display: none;
@@ -83,6 +87,7 @@
 
       .field-box {
         border: 2px solid $scoreboard-color-overlay-mission-border;
+        width: 100%; // To counter-effect .waves-effect
 
         .images {
           margin: 5px;
@@ -133,6 +138,7 @@
           flex-wrap: wrap;
 
           .number {
+            cursor: pointer;
             flex-grow: 1;
             border: 2px solid $scoreboard-color-overlay-mission-border;
             padding: 20px 10px;
@@ -145,6 +151,18 @@
 
             .digit {
               font-size: 2em;
+            }
+
+            .color-disc {
+              width: 40px;
+              height: 40px;
+              margin: 0 auto 10px;
+              border-radius: 100%;
+              border: 2px solid transparent;
+
+              &.no-color {
+                border-color: $scoreboard-color-text-grey;
+              }
             }
 
             .points {
@@ -165,8 +183,12 @@
       }
     }
 
-    .options.multiple label {
-      display: inline-block;
+    label.option {
+      cursor: pointer;
+      display: block;
+    }
+
+    .options.multiple .option {
       width: 50%;
     }
 

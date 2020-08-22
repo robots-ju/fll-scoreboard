@@ -7,7 +7,7 @@ export default {
     const task = vnode.attrs.task;
     const missions = vnode.attrs.missions;
 
-    return m('.options', {
+    return m('.task.options', {
       className: task.options.length > 1 ? ' multiple' : '',
     }, task.options.map(
       (option, key) => {
