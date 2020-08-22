@@ -546,7 +546,7 @@ const data: Year = {
       },
       description: {
         en: 'If an Upgrade (solar panels, roof garden, insulation) is Independent, and Supported only by a Stack which is at least partly in any Circle',
-        fr: 'Si une amélioration  ​(panneau solaire, jardin de toit, isolation)​ est indépendante et supportée uniquement par une pile qui est au moins partiellement dans un cercle',
+        fr: 'Si une amélioration ​(panneau solaire, jardin de toit, isolation)​ est indépendante et supportée uniquement par une pile qui est au moins partiellement dans un cercle',
       },
       position: {
         top: 30,
