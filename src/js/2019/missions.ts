@@ -27,7 +27,7 @@ const data: Year = {
     },
     m02_circle_requirement_not_met: {
       mission: 2,
-      en: 'You must score the blue unit supported by another unit to score the cirle',
+      en: 'You must score the blue unit supported by another unit to score the circle',
       fr: 'Vous devez obtenir les points d\'unitée supportée pour obtenir les points de cercle',
     },
   },
