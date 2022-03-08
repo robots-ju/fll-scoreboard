@@ -355,7 +355,7 @@ export class FllScorer extends AbstractScorer<MissionObject2018, Warnings2018> {
      * 2018-08-04, M08. AEROBIC EXERCISE
      * > OR
      */
-    if (m08_orange + m08_white + m08_grey > 1) {
+    if (Number(m08_orange) + Number(m08_white) + Number(m08_grey) > 1) {
       warnings.push(Warnings2018.m08_cannot_score_multiple);
     }
 
@@ -467,7 +467,7 @@ export class FllScorer extends AbstractScorer<MissionObject2018, Warnings2018> {
      * 2018-08-04, M13. OBSERVATORY
      * > OR
      */
-    if (m13_orange + m13_white + m13_grey > 1) {
+    if (Number(m13_orange) + Number(m13_white) + Number(m13_grey) > 1) {
       warnings.push(Warnings2018.m13_cannot_score_multiple);
     }
 
@@ -548,7 +548,7 @@ export class FllScorer extends AbstractScorer<MissionObject2018, Warnings2018> {
      * 2018-08-04, M15. LANDER TOUCH-DOWN
      * > OR
      */
-    if (m15_target + m15_planet + m15_base > 1) {
+    if (Number(m15_target) + Number(m15_planet) + Number(m15_base) > 1) {
       warnings.push(Warnings2018.m15_cannot_score_multiple);
     }
 

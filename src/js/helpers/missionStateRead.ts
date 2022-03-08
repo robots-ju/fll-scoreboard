@@ -1,11 +1,13 @@
+import {MissionObject} from "../interfaces/ChallengeYear";
+
 /**
  * Read and prepare the value of a boolean mission
  * @param {Object} missions
  * @param {string} key
  * @returns {boolean}
  */
-export function booleanMission(missions, key) {
-  return missions.hasOwnProperty(key) && missions[key];
+export function booleanMission<T extends MissionObject = any>(missions: T, key: keyof T): boolean {
+  return missions.hasOwnProperty(key) && !!missions[key];
 }
 
 /**
@@ -14,9 +16,9 @@ export function booleanMission(missions, key) {
  * @param {string} key
  * @returns {number}
  */
-export function numericMission(missions, key) {
+export function numericMission<T extends MissionObject = any>(missions: T, key: keyof T): number {
   if (missions.hasOwnProperty(key)) {
-    return missions[key];
+    return missions[key] as any;
   } else {
     return 0;
   }

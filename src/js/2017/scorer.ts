@@ -340,7 +340,7 @@ export class FllScorer extends AbstractScorer<MissionObject2017, Warnings2017> {
        * > FOR BONUS: Score Flower Points as described above WITH at least one Rain in the purple part, touching nothing but the Flower model.
        * > 30 Points Added
        */
-      if (m13_flower_raised >= 1) {
+      if (m13_flower_raised) {
         score += 30;
       } else {
         warnings.push(Warnings2017.m13_bonus_requirements_not_met);
@@ -460,7 +460,7 @@ export class FllScorer extends AbstractScorer<MissionObject2017, Warnings2017> {
        * > FOR BONUS: Score Slingshot points as described above WITH the Dirty Water and a Rain completely in the Slingshot target.
        * > 15 Points Added
        */
-      if (m17_slingshot >= 1) {
+      if (m17_slingshot) {
         score += 15;
       } else {
         warnings.push(Warnings2017.m17_bonus_requirements_not_met);
