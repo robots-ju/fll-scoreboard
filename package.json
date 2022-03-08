@@ -5,12 +5,11 @@
   "author": "Clark Winkelmann <clark.winkelmann@gmail.com> (https://clarkwinkelmann.com/)",
   "license": "MIT",
   "scripts": {
-    "dev": "npm run development",
-    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "npm run development -- --watch",
-    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "prod": "npm run production",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "production": "mix --production",
     "test": "./node_modules/.bin/karma start karma.conf.js --single-run"
   },
   "dependencies": {
@@ -24,15 +23,15 @@
     "karma": "^4.3.0",
     "karma-jasmine": "^2.0.1",
     "karma-phantomjs-launcher": "^1.0.4",
-    "laravel-mix": "^4.1.2",
-    "materialize-css": "^1.0.0-rc.2",
+    "laravel-mix": "^6.0.43",
+    "materialize-css": "^1.0.0",
     "mithril": "^2.0.3"
   },
   "devDependencies": {
-    "resolve-url-loader": "3.1.0",
-    "sass": "^1.22.10",
-    "sass-loader": "7.*",
-    "ts-loader": "^6.0.4",
-    "typescript": "^3.6.2"
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.49.9",
+    "sass-loader": "^12.1.0",
+    "ts-loader": "^9.2.7",
+    "typescript": "^4.6.2"
   }
 }
