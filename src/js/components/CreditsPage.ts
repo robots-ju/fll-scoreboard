@@ -54,7 +54,7 @@ export default {
           'English mission descriptions are copied from the official handbook.',
         ]),
         m('p', [
-          'French mission descriptions are copied from the EPFL handbook (2016-2019) or HANDS on TECHNOLOGY handbook (2020).',
+          'French mission descriptions are copied from the EPFL handbook (2016-2019) or HANDS on TECHNOLOGY handbook (2020-2021).',
         ]),
       ]),
     ];
