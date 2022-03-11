@@ -1,5 +1,5 @@
 {
-  "name": "robots-ju-fll-scoreboard",
+  "name": "@robots-ju/fll-scoreboard",
   "version": "1.0.0",
   "description": "Unofficial web scoreboard for the FLL Robot Game",
   "author": "Clark Winkelmann <clark.winkelmann@gmail.com> (https://clarkwinkelmann.com/)",
@@ -13,21 +13,21 @@
     "test": "./node_modules/.bin/karma start karma.conf.js --single-run"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.10.1",
+    "@fortawesome/fontawesome-free": "^5.10",
+    "@types/materialize-css": "^1.0",
+    "@types/mithril": "^2.0",
+    "materialize-css": "^1.0",
+    "mithril": "^2.0"
+  },
+  "devDependencies": {
     "@types/jasmine": "^3.4.0",
     "@types/karma": "^3.0.3",
-    "@types/materialize-css": "^1.0.6",
-    "@types/mithril": "^2.0.0",
     "cross-env": "^5.2.0",
     "jasmine-core": "^3.4.0",
     "karma": "^4.3.0",
     "karma-jasmine": "^2.0.1",
     "karma-phantomjs-launcher": "^1.0.4",
     "laravel-mix": "^6.0.43",
-    "materialize-css": "^1.0.0",
-    "mithril": "^2.0.3"
-  },
-  "devDependencies": {
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.49.9",
     "sass-loader": "^12.1.0",
