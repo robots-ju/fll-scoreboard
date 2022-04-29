@@ -912,7 +912,7 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.6.tgz#d5e0706cf8c6acd8c6032f8d54070af261bbbb2f"
   integrity sha512-ws57AidsDvREKrZKYffXddNkyaF14iHNHm8VQnZH6t99E8gczjNN0GpvcGny0imC80yQ0tHz1xVUKk/KFQSUyA==
 
-"@fortawesome/fontawesome-free@^5.10.1":
+"@fortawesome/fontawesome-free@^5.10":
   version "5.15.4"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.15.4.tgz#ecda5712b61ac852c760d8b3c79c96adca5554e5"
   integrity sha512-eYm8vijH/hpzr/6/1CJ/V/Eb1xQFW2nnUKArb3z+yUWv7HTwj6M7SP957oMjfZjAHU6qpoNc2wQvIxBLWYa/Jg==
@@ -1154,7 +1154,7 @@
     "@types/node" "*"
     log4js "^4.0.0"
 
-"@types/materialize-css@^1.0.6":
+"@types/materialize-css@^1.0":
   version "1.0.11"
   resolved "https://registry.yarnpkg.com/@types/materialize-css/-/materialize-css-1.0.11.tgz#3e6c75bf8057161e37f33a52a9437a146e27dab5"
   integrity sha512-V7/jSwuq6QrWAjzA2dkZhlqzrrcxcjB+RDfwhw8CosNYZgb+FaAJmmB6t7CT7SRFNRRSxG839e6iK32Vq6sZrQ==
@@ -1172,10 +1172,10 @@
   resolved "https://registry.yarnpkg.com/@types/minimatch/-/minimatch-3.0.5.tgz#1001cc5e6a3704b83c236027e77f2f58ea010f40"
   integrity sha512-Klz949h02Gz2uZCMGwDUSDS1YBlTdDDgbWHi+81l29tQALUtvz4rAYi5uoVhE5Lagoq6DeqAUlbrHvW/mXDgdQ==
 
-"@types/mithril@^2.0.0":
-  version "2.0.9"
-  resolved "https://registry.yarnpkg.com/@types/mithril/-/mithril-2.0.9.tgz#5efb9145f44b3c8693745da3ff48aba4a323b500"
-  integrity sha512-a8TMNdGsowAB0R+VppKKmJNAA9YKGVuBvMZcITWTHIZGSKdu3LtyBDKGyU6QkzKJSzq+pW2egxg+09nRK03qIg==
+"@types/mithril@^2.0":
+  version "2.0.10"
+  resolved "https://registry.yarnpkg.com/@types/mithril/-/mithril-2.0.10.tgz#27ed0cc7cab30daf722d0d7c48c826bea381c954"
+  integrity sha512-ef44j85vtiFuwu4ADkHSDfYu1MbnSQSgOrTMRfQ5v4gvAnB4ms8KjelJzUIuSrL3lO7y8k2T0DiUAAEfisnsQw==
 
 "@types/node@*":
   version "17.0.21"
@@ -1560,9 +1560,9 @@ async-limiter@~1.0.0:
   integrity sha512-csOlWGAcRFJaI6m+F2WKdnMKr4HhdhFVBk0H/QbJFMCr+uO2kwohwXQPxw/9OCxp05r5ghVBFSyioixx3gfkNQ==
 
 async@^2.6.2:
-  version "2.6.3"
-  resolved "https://registry.yarnpkg.com/async/-/async-2.6.3.tgz#d72625e2344a3656e3a3ad4fa749fa83299d82ff"
-  integrity sha512-zflvls11DCy+dQWzTW2dzuilv8Z5X/pjfmZOWba6TNIVDm+2UDaJmXSOXlasHKfNBs8oo3M0aT50fDEWfKZjXg==
+  version "2.6.4"
+  resolved "https://registry.yarnpkg.com/async/-/async-2.6.4.tgz#706b7ff6084664cd7eae713f6f965433b5504221"
+  integrity sha512-mzo5dfJYwAn29PeiJ0zvwTo04zj8HDJj0Mn8TD7sno7q12prdbnasKJHhkm2c1LgrhlJ0teaea8860oxi51mGA==
   dependencies:
     lodash "^4.17.14"
 
@@ -4057,7 +4057,7 @@ make-dir@^3.0.0, make-dir@^3.0.2, make-dir@^3.1.0:
   dependencies:
     semver "^6.0.0"
 
-materialize-css@^1.0.0:
+materialize-css@^1.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/materialize-css/-/materialize-css-1.0.0.tgz#8d5db1c4a81c6d65f3b2e2ca83a8e08daa24d1be"
   integrity sha512-4/oecXl8y/1i8RDZvyvwAICyqwNoKU4or5uf8uoAd74k76KzZ0Llym4zhJ5lLNUskcqjO0AuMcvNyDkpz8Z6zw==
@@ -4201,7 +4201,7 @@ minimist@~0.0.1:
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.10.tgz#de3f98543dbf96082be48ad1a0c7cda836301dcf"
   integrity sha1-3j+YVD2/lggr5IrRoMfNqDYwHc8=
 
-mithril@^2.0.3:
+mithril@^2.0:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/mithril/-/mithril-2.0.4.tgz#d125969d992b924c7185d24ff92d997e5c00116b"
   integrity sha512-mgw+DMZlhMS4PpprF6dl7ZoeZq5GGcAuWnrg5e12MvaGauc4jzWsDZtVGRCktsiQczOEUr2K5teKbE5k44RlOg==
