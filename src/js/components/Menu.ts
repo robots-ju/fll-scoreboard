@@ -4,8 +4,10 @@ import {texts, years} from "../global";
 
 const Link = {
   view(vnode) {
+    const currentPathWithoutHash = m.route.get().split('#')[0];
+
     return m('li', {
-      className: m.route.get() === vnode.attrs.href ? ' active' : '',
+      className: currentPathWithoutHash === vnode.attrs.href ? ' active' : '',
     }, m(m.route.Link, {
       href: vnode.attrs.href,
       className: 'waves-effect',
