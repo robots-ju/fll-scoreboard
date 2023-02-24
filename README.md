@@ -3,7 +3,7 @@
 Unofficial web scoreboard for the FLL Robot Game.
 
 This is a private project that is not supported or approved by the FIRST® LEGO® League.
-However it may be the official scoreboard for some events organised by [Robots-JU](https://robots-ju.ch/).
+However, it may be the official scoreboard for some events organised by [Robots-JU](https://robots-ju.ch/).
 
 Feel free to report bugs and suggestions in the issues !
 
@@ -31,10 +31,10 @@ php -S localhost:4000
 
 ### Unit tests
 
-The scorer for each year is unit-tested based on the rules.
-You can run the tests with `yarn test`.
+The scorer for each year is unit-tested based on the rule book.
+The test requires the application compiled with Mix first (`yarn dev`), then the tests can be run with `yarn test`.
 
-## Images copyrights
+## Image copyrights
 
 The table overview images and the season logos come from the official [Robot Game material](http://www.firstlegoleague.org/challenge).
 The images were resized and compressed to a more suitable size.
