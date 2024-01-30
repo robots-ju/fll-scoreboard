@@ -15,12 +15,7 @@ const data: Year = {
       penalties: '#000',
     },
   },
-  warnings: {
-    unknown: {
-      en: 'The calculator returned an unknown warning: %warning%',
-      fr: 'Le calculateur a retourné un avertissement non géré: %warning%',
-    },
-  },
+  warnings: {},
   missions: [
     {
       number: 0,

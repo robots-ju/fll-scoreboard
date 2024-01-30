@@ -6,11 +6,12 @@ import {MissionObject, Option} from '../interfaces/ChallengeYear';
 interface OverlayOptionNumberAttrs {
   option: Option
   missions: MissionObject
+  controlOnly?: boolean
 }
 
 export default class OverlayOptionNumber implements m.ClassComponent<OverlayOptionNumberAttrs> {
   view(vnode: m.Vnode<OverlayOptionNumberAttrs>) {
-    const {option, missions} = vnode.attrs;
+    const {option, missions, controlOnly} = vnode.attrs;
 
     let inputs = [];
 
@@ -81,7 +82,11 @@ export default class OverlayOptionNumber implements m.ClassComponent<OverlayOpti
       ]));
     }
 
-    return m('.option', [
+    if (controlOnly) {
+      return m('.scoreboard__option', m('.numbers-input', inputs));
+    }
+
+    return m('.scoreboard__option', [
       m('.field-box', {
         className: missions[option.handle] ? ' active' : '',
       }, [

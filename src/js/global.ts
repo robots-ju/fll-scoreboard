@@ -30,6 +30,22 @@ const texts = {
       en: 'Reset score',
       fr: 'Remettre à zéro',
     },
+    yes: {
+      en: 'Yes',
+      fr: 'Oui',
+    },
+    grid_mode: {
+      en: 'Switch to list mode',
+      fr: 'Passer en mode liste',
+    },
+    map_mode: {
+      en: 'Switch to field mode',
+      fr: 'Passer en mode tapis',
+    },
+    unknown_warning: {
+      en: 'The calculator returned an unknown warning: %warning%',
+      fr: 'Le calculateur a retourné un avertissement non géré: %warning%',
+    },
   },
 };
 

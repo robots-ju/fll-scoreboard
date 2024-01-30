@@ -16,10 +16,6 @@ const data: Year = {
     },
   },
   warnings: {
-    unknown: {
-      en: 'The calculator returned an unknown warning: %warning%',
-      fr: 'Le calculateur a retourné un avertissement non géré: %warning%',
-    },
     m05_gas_requirements_not_met: {
       mission: 5,
       en: 'First part of M05 is required to score with gas sample',

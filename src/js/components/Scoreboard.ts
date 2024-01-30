@@ -1,26 +1,35 @@
 import * as m from 'mithril';
 import icon from '../helpers/icon';
 import trans from '../helpers/trans';
-import FieldMission from './FieldMission';
 import OverlayMission from './OverlayMission';
+import TopViewField from './TopViewField';
 import Configuration from '../utils/Configuration';
 import {texts} from '../global';
 import {AbstractScorer, MissionObject, Year} from '../interfaces/ChallengeYear';
+import GridBoard from './GridBoard';
 
-interface ScoreboardAttrs {
+export interface ScoreboardAttrs {
   missions: MissionObject
   data: Year
   scorer: AbstractScorer<MissionObject, any>
 }
 
 export default class Scoreboard implements m.ClassComponent<ScoreboardAttrs> {
-  // The index of the mission to display in extended format
-  // If the viewport is large enough we open the first mission in the wizard
-  focused_mission = window.innerWidth > Configuration.openOverlayWhenInnerWidthGreatherThan ? 0 : -1
+  focused_mission = -1
   missionsCount: number
+  gridMode: boolean = false
 
   oninit(vnode: m.Vnode<ScoreboardAttrs>) {
+    // Need to copy this value because it will be used in a callback without access to vnode
     this.missionsCount = vnode.attrs.data.missions.length;
+
+    this.gridMode = window.localStorage.getItem('gridMode') === '1';
+
+    // The index of the mission to display in extended format
+    // If the viewport is large enough we open the first mission in the wizard
+    if (!this.gridMode && window.innerWidth > Configuration.openOverlayWhenInnerWidthGreatherThan) {
+      this.focused_mission = 0;
+    }
   }
 
   focusMission(mission: string | number) {
@@ -110,7 +119,7 @@ export default class Scoreboard implements m.ClassComponent<ScoreboardAttrs> {
           if (warning_key && data.warnings.hasOwnProperty(warning_key)) {
             warning_data = data.warnings[warning_key];
           } else {
-            warning_data = data.warnings.unknown;
+            warning_data = texts.strings.unknown_warning;
           }
 
           return m('.scoreboard__warning', {
@@ -126,19 +135,17 @@ export default class Scoreboard implements m.ClassComponent<ScoreboardAttrs> {
           }, trans(warning_data).replace('%warning%', warning));
         }
       )),
-      m('.scoreboard__field', {
-        className: this.focused_mission !== -1 ? ' --overlay-open' : '',
-        style: {
-          backgroundImage: 'url(' + Configuration.imagePath + data.meta.field + ')',
-        },
-      }, data.missions.map(
-        (mission, key) => m(FieldMission, {
-          mission,
-          key,
-          missions,
-          focusMission: this.focusMission.bind(this),
-        })
-      )),
+      this.gridMode ? m(GridBoard, {
+        data,
+        missions,
+        focused_mission: this.focused_mission,
+        focusMission: this.focusMission.bind(this),
+      }) : m(TopViewField, {
+        data,
+        missions,
+        focused_mission: this.focused_mission,
+        focusMission: this.focusMission.bind(this),
+      }),
       m('.scoreboard__overlay', {
         className: this.focused_mission !== -1 ? ' --open' : '',
       }, data.missions.map(
@@ -150,14 +157,33 @@ export default class Scoreboard implements m.ClassComponent<ScoreboardAttrs> {
         })
       )),
       m('.tools', [
-        m('button.btn', {
+        m('button.btn.btn-larger', {
           onclick() {
             const initial = scorer.initialMissionsState();
             Object.keys(initial).forEach(key => {
               missions[key] = initial[key];
             });
           },
-        }, trans(texts.strings.reset)),
+        }, [
+          icon('eraser'),
+          ' ',
+          trans(texts.strings.reset),
+        ]),
+        m('button.btn', {
+          onclick: () => {
+            this.gridMode = !this.gridMode;
+            this.focused_mission = -1;
+            window.localStorage.setItem('gridMode', this.gridMode ? '1' : '0');
+          },
+        }, this.gridMode ? [
+          icon('map'),
+          ' ',
+          trans(texts.strings.map_mode),
+        ] : [
+          icon('list'),
+          ' ',
+          trans(texts.strings.grid_mode),
+        ]),
       ]),
     ]);
   }

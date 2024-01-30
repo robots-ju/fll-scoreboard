@@ -15,7 +15,13 @@ const data: Year = {
       penalties: '#ff6100',
     },
   },
-  warnings: {},
+  warnings: {
+    m01_cannot_score_bonus_alone: {
+      mission: 1,
+      en: 'Cannot score bonus without the first part',
+      fr: 'Vous ne pouvez pas marquer le bonus sans la première partie',
+    },
+  },
   missions: [
     {
       number: 1,

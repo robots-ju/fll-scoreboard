@@ -1,0 +1,90 @@
+.scoreboard__grid {
+  margin: 60px auto 180px;
+  max-width: 800px;
+
+  &.--overlay-open {
+    margin-left: 0;
+  }
+
+  @media (min-width: 1800px) {
+    &.--overlay-open {
+      margin-left: 200px;
+    }
+  }
+
+  td:nth-child(2) {
+    text-align: right;
+  }
+
+  .scoreboard__option {
+    width: auto;
+    max-width: 400px;
+    margin: 8px 0;
+
+    --color-disk-size: 22px;
+
+    .description {
+      padding: 10px;
+    }
+
+    .number {
+      padding: 10px 20px;
+    }
+
+    .number .digit {
+      font-size: 1.5em;
+    }
+  }
+
+  .scoreboard__grid__option, .constraints {
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  .scoreboard__grid__option.part-of-previous-task {
+    border-top-style: dashed;
+  }
+
+  .scoreboard__grid__mission + .scoreboard__grid__option {
+    border-top: none;
+  }
+
+  .scoreboard__grid__mission .description, .constraints {
+    color: #aaa;
+  }
+
+  .constraints ul {
+    padding-left: 20px;
+  }
+}
+
+.scoreboard__grid__mission {
+  border-top: 2px solid var(--challenge-missions-color);
+
+  .number, .title {
+    display: inline-block;
+    padding: 5px;
+    font-weight: bold;
+  }
+
+  .number {
+    background: var(--challenge-missions-color);
+    color: $scoreboard-color-text-light;
+    min-width: 60px;
+    text-align: center;
+  }
+
+  .description {
+    margin-top: 5px;
+  }
+}
+
+.scoreboard__grid__option {
+  display: flex;
+  align-items: center;
+
+  > div:first-child {
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding: 20px 0;
+  }
+}

@@ -16,10 +16,6 @@ const data: Year = {
     },
   },
   warnings: {
-    unknown: {
-      en: 'The calculator returned an unknown warning: %warning%',
-      fr: 'Le calculateur a retourné un avertissement non géré: %warning%',
-    },
     m04_requirement_not_met: {
       mission: 4,
       en: 'Cubles can only score points is the bench is down flat',

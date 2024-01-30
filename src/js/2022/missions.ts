@@ -26,10 +26,6 @@ const data: Year = {
       en: 'Both options must be selected to score the bonus on mission 5',
       fr: 'Les 2 options doivent être sélectionnées pour marquer le bonus de la mission 5',
     },
-    unknown: {
-      en: 'The calculator returned an unknown warning: %warning%',
-      fr: 'Le calculateur a retourné un avertissement non géré: %warning%',
-    },
   },
   missions: [
     {

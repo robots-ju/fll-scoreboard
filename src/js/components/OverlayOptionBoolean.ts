@@ -2,19 +2,21 @@ import * as m from 'mithril';
 import OverlayImageGallery from './OverlayImageGallery';
 import icon from '../helpers/icon';
 import trans from '../helpers/trans';
+import {texts} from '../global';
 import {MissionObject, Option, Task} from '../interfaces/ChallengeYear';
 
 interface OverlayOptionBooleanAttrs {
   task: Task
   option: Option
   missions: MissionObject
+  controlOnly?: boolean
 }
 
 export default class OverlayOptionBoolean implements m.ClassComponent<OverlayOptionBooleanAttrs> {
   view(vnode: m.Vnode<OverlayOptionBooleanAttrs>) {
-    const {task, option, missions} = vnode.attrs;
+    const {task, option, missions, controlOnly} = vnode.attrs;
 
-    return m('label.option', [
+    return m('label.scoreboard__option', [
       m('input[type=checkbox]', {
         checked: missions[option.handle],
         onchange() {
@@ -32,12 +34,12 @@ export default class OverlayOptionBoolean implements m.ClassComponent<OverlayOpt
       m('.field-box.waves-effect', {
         className: missions[option.handle] ? ' active' : '',
       }, [
-        m(OverlayImageGallery, {
+        controlOnly ? null : m(OverlayImageGallery, {
           images: option.images,
         }),
         m('.description', [
           m('span.fake-checkbox', icon('check')),
-          m('span.title', trans(option.title)),
+          m('span.title', trans(controlOnly ? texts.strings.yes : option.title)),
           option.points && m('span.points', '+' + option.points),
         ]),
       ]),

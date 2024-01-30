@@ -16,10 +16,6 @@ const data: Year = {
     },
   },
   warnings: {
-    unknown: {
-      en: 'The calculator returned an unknown warning: %warning%',
-      fr: 'Le calculateur a retourné un avertissement non géré: %warning%',
-    },
     m01_bridge_requirement_not_met: {
       mission: 1,
       en: 'You can only get Flag points if you get Bridge points',

@@ -16,26 +16,22 @@ const data: Year = {
     },
   },
   warnings: {
-    unknown: {
-      en: 'The calculator returned an unknown warning: %warning%',
-      fr: 'Le calculateur a retourné un avertissement non géré: %warning%',
-    },
-    'm08_bonus_requirements_not_met': {
+    m08_bonus_requirements_not_met: {
       mission: 8,
       en: 'You don\'t meet the bonus requirements for M08',
       fr: 'Vous ne remplissez pas les conditions du bonus pour M08',
     },
-    'm13_bonus_requirements_not_met': {
+    m13_bonus_requirements_not_met: {
       mission: 13,
       en: 'You don\'t meet the bonus requirements for M13',
       fr: 'Vous ne remplissez pas les conditions du bonus pour M13',
     },
-    'm16_bonus_requirements_not_met': {
+    m16_bonus_requirements_not_met: {
       mission: 16,
       en: 'You don\'t meet the bonus requirements for M16',
       fr: 'Vous ne remplissez pas les conditions du bonus pour M16',
     },
-    'm17_bonus_requirements_not_met': {
+    m17_bonus_requirements_not_met: {
       mission: 17,
       en: 'You don\'t meet the bonus requirements for M17',
       fr: 'Vous ne remplissez pas les conditions du bonus pour M17',

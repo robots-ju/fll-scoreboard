@@ -2,7 +2,7 @@
   position: fixed;
   bottom: 60px;
   left: 10px;
-  width: 300px;
+  width: 260px;
   max-width: 100%;
   border-left: 2px solid $scoreboard-color-text-grey;
   padding: 20px;
@@ -31,27 +31,6 @@
     margin-top: 0;
   }
 
-  .locales {
-    margin: 0 0 10px;
-    padding: 0;
-    list-style: none;
-
-    li {
-      cursor: pointer;
-      display: inline-block;
-      padding: 0.2em 0.5em;
-      text-transform: uppercase;
-
-      &:hover {
-        text-decoration: underline;
-      }
-
-      &:not(:first-of-type) {
-        border-left: 2px solid #e1e1e1;
-      }
-    }
-  }
-
   .btn {
     border-radius: 2px;
     text-decoration: none;
@@ -59,6 +38,7 @@
     border: none;
     box-shadow: 0 0 2px $scoreboard-color-shadow;
     cursor: pointer;
+    margin-top: 10px;
 
     background: #efefef;
     color: $scoreboard-color-text-dark;
@@ -66,23 +46,9 @@
     &:hover {
       background: #e1e1e1;
     }
-
-    &.twitter {
-      background: #1b95e0; // Twitter brand color
-      color: white;
-
-      &:hover {
-        background: #0c7abf;
-      }
-    }
-
-    &.big {
-      font-size: 1.4em;
-      display: block;
-    }
   }
 
-  img {
-    max-width: 100%;
+  .btn-larger {
+    font-size: 1.3em;
   }
 }
