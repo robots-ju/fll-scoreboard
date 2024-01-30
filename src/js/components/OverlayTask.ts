@@ -1,11 +1,16 @@
 import * as m from 'mithril';
 import OverlayOptionBoolean from './OverlayOptionBoolean';
 import OverlayOptionNumber from './OverlayOptionNumber';
+import {MissionObject, Task} from '../interfaces/ChallengeYear';
 
-export default {
-  view(vnode) {
-    const task = vnode.attrs.task;
-    const missions = vnode.attrs.missions;
+interface OverlayTaskAttrs {
+  task: Task
+  missions: MissionObject
+}
+
+export default class OverlayTask implements m.ClassComponent<OverlayTaskAttrs> {
+  view(vnode: m.Vnode<OverlayTaskAttrs>) {
+    const {task, missions} = vnode.attrs;
 
     return m('.task.options', {
       className: task.options.length > 1 ? ' multiple' : '',
@@ -31,5 +36,5 @@ export default {
         return 'INVALID OPTION TYPE';
       }
     ));
-  },
+  }
 }

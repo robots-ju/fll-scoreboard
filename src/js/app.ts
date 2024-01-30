@@ -1,8 +1,8 @@
 import * as m from 'mithril';
 import StandaloneScoreboard from './components/StandaloneScoreboard';
-import CreditsPage from "./components/CreditsPage";
-import {years} from "./global";
-import Layout from "./components/Layout";
+import CreditsPage from './components/CreditsPage';
+import {years} from './global';
+import Layout from './components/Layout';
 
 require('materialize-css');
 

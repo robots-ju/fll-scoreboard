@@ -1,17 +1,22 @@
 import * as m from 'mithril';
 import Scoreboard from './Scoreboard';
-import {NumericHashReader} from "../utils/NumericHashReader";
-import {AbstractScorer, MissionObject, Year} from "../interfaces/ChallengeYear";
+import {NumericHashReader} from '../utils/NumericHashReader';
+import {AbstractScorer, MissionObject, Year} from '../interfaces/ChallengeYear';
 
 const EMPTY_HASH = /^#0+$/;
 
-export default class StandaloneScoreboard implements m.Component {
+export class StandaloneScoreboardAttrs {
+  data: Year
+  scorer: AbstractScorer<MissionObject, any>
+}
+
+export default class StandaloneScoreboard implements m.ClassComponent<StandaloneScoreboardAttrs> {
   hashReader: NumericHashReader;
   missions: MissionObject;
   lastMissions: string;
 
-  oninit(vnode) {
-    const scorer = vnode.attrs.scorer as AbstractScorer<MissionObject, any>;
+  oninit(vnode: m.Vnode<StandaloneScoreboardAttrs>) {
+    const {scorer} = vnode.attrs;
     this.hashReader = new NumericHashReader(scorer.initialMissionsState());
     this.missions = scorer.initialMissionsState();
 
@@ -19,7 +24,7 @@ export default class StandaloneScoreboard implements m.Component {
       try {
         const hash = window.location.hash.substring(1);
 
-        let initialMissionsState;
+        let initialMissionsState: MissionObject;
 
         if (hash.match(/^[0-6]+$/)) {
           initialMissionsState = this.hashReader.decode(hash);
@@ -40,9 +45,8 @@ export default class StandaloneScoreboard implements m.Component {
     this.lastMissions = JSON.stringify(this.missions);
   }
 
-  view(vnode) {
-    const scorer = vnode.attrs.scorer as AbstractScorer<MissionObject, any>;
-    const data = vnode.attrs.data as Year;
+  view(vnode: m.Vnode<StandaloneScoreboardAttrs>) {
+    const {scorer, data} = vnode.attrs;
 
     const missionsJson = JSON.stringify(this.missions);
 
@@ -64,7 +68,6 @@ export default class StandaloneScoreboard implements m.Component {
       missions: this.missions,
       scorer,
       data,
-      missionHash,
     });
   }
 }

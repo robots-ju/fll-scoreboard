@@ -1,12 +1,18 @@
 import * as m from 'mithril';
 import trans from '../helpers/trans';
 import OverlayTask from './OverlayTask';
-import {Mission, MissionObject} from "../interfaces/ChallengeYear";
+import {Mission, MissionObject} from '../interfaces/ChallengeYear';
 
-export default {
-  view(vnode) {
-    const mission = vnode.attrs.mission as Mission;
-    const missions = vnode.attrs.missions as MissionObject;
+interface OverlayMissionAttrs {
+  key: number
+  focused_mission: number
+  mission: Mission
+  missions: MissionObject
+}
+
+export default class OverlayMission implements m.ClassComponent<OverlayMissionAttrs> {
+  view(vnode: m.Vnode<OverlayMissionAttrs>) {
+    const {mission, missions} = vnode.attrs;
 
     let className = '--hidden-previous';
 
@@ -36,5 +42,5 @@ export default {
         }, trans(constraint))
       )),
     ]));
-  },
+  }
 }

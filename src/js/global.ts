@@ -1,34 +1,34 @@
-import {AbstractScorer, MissionObject, Year} from "./interfaces/ChallengeYear";
+import {AbstractScorer, MissionObject, Year} from './interfaces/ChallengeYear';
 
 const texts = {
   locales: {
-    en: "English",
-    fr: "Français",
+    en: 'English',
+    fr: 'Français',
   },
   strings: {
     prev: {
-      en: "Previous",
-      fr: "Précédent",
+      en: 'Previous',
+      fr: 'Précédent',
     },
     next: {
-      en: "Next",
-      fr: "Suivant",
+      en: 'Next',
+      fr: 'Suivant',
     },
     close: {
-      en: "Close",
-      fr: "Fermer",
+      en: 'Close',
+      fr: 'Fermer',
     },
     launch_wizard: {
-      en: "Launch wizard",
-      fr: "Lancer l'assistant",
+      en: 'Launch wizard',
+      fr: 'Lancer l\'assistant',
     },
     about: {
-      en: "The Robots-JU Scoreboard is an unofficial Robot Game scoreboard for the FIRST LEGO League #IntoOrbit season",
-      fr: "Le Scoreboard Robots-JU est un tableau de score non officiel pour le Robot-Game de la FIRST LEGO League #IntoOrbit",
+      en: 'The Robots-JU Scoreboard is an unofficial Robot Game scoreboard for the FIRST LEGO League #IntoOrbit season',
+      fr: 'Le Scoreboard Robots-JU est un tableau de score non officiel pour le Robot-Game de la FIRST LEGO League #IntoOrbit',
     },
     reset: {
-      en: "Reset score",
-      fr: "Remettre à zéro",
+      en: 'Reset score',
+      fr: 'Remettre à zéro',
     },
   },
 };

@@ -1,9 +1,13 @@
 import * as m from 'mithril';
 import lang from '../helpers/lang';
-import {texts, years} from "../global";
+import {texts, years} from '../global';
 
-const Link = {
-  view(vnode) {
+interface LinkAttrs {
+  href: string
+}
+
+class Link implements m.ClassComponent<LinkAttrs> {
+  view(vnode: m.Vnode<LinkAttrs>) {
     const currentPathWithoutHash = m.route.get().split('#')[0];
 
     return m('li', {
@@ -13,19 +17,21 @@ const Link = {
       className: 'waves-effect',
     }, vnode.children));
   }
-};
+}
 
-export default {
-  oncreate(vnode) {
+export default class Menu implements m.ClassComponent {
+  oncreate(vnode: m.VnodeDOM) {
     M.Sidenav.init(vnode.dom);
-  },
-  onremove(vnode) {
+  }
+
+  onremove(vnode: m.VnodeDOM) {
     M.Sidenav.getInstance(vnode.dom).destroy();
-  },
-  view(vnode) {
+  }
+
+  view(vnode: m.Vnode) {
     return m('ul.sidenav#menu', {
       onclick() {
-        M.Sidenav.getInstance(vnode.dom).close();
+        M.Sidenav.getInstance((vnode as m.VnodeDOM).dom).close();
       },
     }, [
       years.map(year => m(Link, {
@@ -46,5 +52,5 @@ export default {
         }, texts.locales[locale]))
       ),
     ]);
-  },
+  }
 }

@@ -1,12 +1,16 @@
 import * as m from 'mithril';
 import OverlayImageGallery from './OverlayImageGallery';
 import trans from '../helpers/trans';
-import {MissionObject, Option} from "../interfaces/ChallengeYear";
+import {MissionObject, Option} from '../interfaces/ChallengeYear';
 
-export default {
-  view(vnode) {
-    const option = vnode.attrs.option as Option;
-    const missions = vnode.attrs.missions as MissionObject;
+interface OverlayOptionNumberAttrs {
+  option: Option
+  missions: MissionObject
+}
+
+export default class OverlayOptionNumber implements m.ClassComponent<OverlayOptionNumberAttrs> {
+  view(vnode: m.Vnode<OverlayOptionNumberAttrs>) {
+    const {option, missions} = vnode.attrs;
 
     let inputs = [];
 
@@ -91,5 +95,5 @@ export default {
         m('.numbers-input', inputs),
       ]),
     ]);
-  },
+  }
 }

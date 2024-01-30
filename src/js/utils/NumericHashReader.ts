@@ -1,4 +1,4 @@
-import {MissionObject} from "../interfaces/ChallengeYear";
+import {MissionObject} from '../interfaces/ChallengeYear';
 
 interface MissionInfo {
   key: string

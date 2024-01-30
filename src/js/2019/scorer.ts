@@ -1,5 +1,5 @@
-import {AbstractScorer, MissionObject} from "../interfaces/ChallengeYear";
-import {booleanMission, numericMission} from "../helpers/missionStateRead";
+import {AbstractScorer, MissionObject} from '../interfaces/ChallengeYear';
+import {booleanMission, numericMission} from '../helpers/missionStateRead';
 
 enum Warnings2019 {
   m01_bridge_requirement_not_met,

@@ -4,45 +4,54 @@ import trans from '../helpers/trans';
 import FieldMission from './FieldMission';
 import OverlayMission from './OverlayMission';
 import Configuration from '../utils/Configuration';
-import {texts} from "../global";
-import {MissionObject, Year} from "../interfaces/ChallengeYear";
+import {texts} from '../global';
+import {AbstractScorer, MissionObject, Year} from '../interfaces/ChallengeYear';
 
-export default {
-  oninit(vnode) {
-    // The index of the mission to display in extended format
-    // If the viewport is large enough we open the first mission in the wizard
-    vnode.state.focused_mission = window.innerWidth > Configuration.openOverlayWhenInnerWidthGreatherThan ? 0 : -1;
+interface ScoreboardAttrs {
+  missions: MissionObject
+  data: Year
+  scorer: AbstractScorer<MissionObject, any>
+}
 
-    vnode.state.focusMission = mission => {
-      let newIndex = vnode.state.focused_mission;
+export default class Scoreboard implements m.ClassComponent<ScoreboardAttrs> {
+  // The index of the mission to display in extended format
+  // If the viewport is large enough we open the first mission in the wizard
+  focused_mission = window.innerWidth > Configuration.openOverlayWhenInnerWidthGreatherThan ? 0 : -1
+  missionsCount: number
 
-      switch (mission) {
-        case 'next':
-          if (newIndex < vnode.attrs.data.missions.length - 1) {
-            newIndex++;
-          } else {
-            newIndex = -1;
-          }
-          break;
-        case 'prev':
-          if (newIndex > -1) {
-            newIndex--;
-          }
-          break;
-        case 'close':
+  oninit(vnode: m.Vnode<ScoreboardAttrs>) {
+    this.missionsCount = vnode.attrs.data.missions.length;
+  }
+
+  focusMission(mission: string | number) {
+    let newIndex = this.focused_mission;
+
+    switch (mission) {
+      case 'next':
+        if (newIndex < this.missionsCount - 1) {
+          newIndex++;
+        } else {
           newIndex = -1;
-          break;
-        default:
-          newIndex = mission;
-      }
+        }
+        break;
+      case 'prev':
+        if (newIndex > -1) {
+          newIndex--;
+        }
+        break;
+      case 'close':
+        newIndex = -1;
+        break;
+      default:
+        newIndex = typeof mission === 'string' ? parseInt(mission) : mission;
+    }
 
-      vnode.state.focused_mission = newIndex;
-    };
-  },
-  view(vnode) {
-    const missions = vnode.attrs.missions as MissionObject;
-    const data = vnode.attrs.data as Year;
-    const output = vnode.attrs.scorer.computeMissions(missions);
+    this.focused_mission = newIndex;
+  }
+
+  view(vnode: m.Vnode<ScoreboardAttrs>) {
+    const {missions, data, scorer} = vnode.attrs;
+    const output = scorer.computeMissions(missions);
     const score = output.score;
 
     return m('div', {
@@ -67,34 +76,34 @@ export default {
           ' FLL Scoreboard',
         ]),
         m('.overlay-nav', {
-          className: vnode.state.focused_mission !== -1 ? ' active' : '',
+          className: this.focused_mission !== -1 ? ' active' : '',
         }, [
           m('button.header-block.nav-prev.waves-effect', {
-            onclick() {
-              vnode.state.focusMission('prev');
+            onclick: () => {
+              this.focusMission('prev');
             },
           }, [icon('chevron-left'), ' ', trans(texts.strings.prev)]),
           m('button.header-block.nav-next.waves-effect', {
-            onclick() {
-              vnode.state.focusMission('next');
+            onclick: () => {
+              this.focusMission('next');
             },
           }, [trans(texts.strings.next), ' ', icon('chevron-right')]),
           m('button.header-block.nav-close.waves-effect', {
-            onclick() {
-              vnode.state.focusMission('close');
+            onclick: () => {
+              this.focusMission('close');
             },
           }, [trans(texts.strings.close), ' ', icon('close')]),
         ]),
         m('button.header-block.start-overlay', {
-          className: vnode.state.focused_mission === -1 ? ' active' : '',
-          onclick() {
-            vnode.state.focusMission(0);
+          className: this.focused_mission === -1 ? ' active' : '',
+          onclick: () => {
+            this.focusMission(0);
           },
         }, [icon('magic'), ' ', trans(texts.strings.launch_wizard)]),
       ]),
       m('.scoreboard__warnings', output.warnings.map(
         warning => {
-          const warning_key = Object.keys(vnode.attrs.scorer.warnings).find(key => vnode.attrs.scorer.warnings[key] === warning);
+          const warning_key = Object.keys(scorer.warnings).find(key => scorer.warnings[key] === warning);
 
           let warning_data = null;
 
@@ -105,12 +114,12 @@ export default {
           }
 
           return m('.scoreboard__warning', {
-            onclick() {
+            onclick: () => {
               if (warning_data.mission) {
                 const index = data.missions.findIndex(mission => mission.number === warning_data.mission);
 
                 if (index !== -1) {
-                  vnode.state.focusMission(index);
+                  this.focusMission(index);
                 }
               }
             },
@@ -118,7 +127,7 @@ export default {
         }
       )),
       m('.scoreboard__field', {
-        className: vnode.state.focused_mission !== -1 ? ' --overlay-open' : '',
+        className: this.focused_mission !== -1 ? ' --overlay-open' : '',
         style: {
           backgroundImage: 'url(' + Configuration.imagePath + data.meta.field + ')',
         },
@@ -127,23 +136,23 @@ export default {
           mission,
           key,
           missions,
-          focusMission: vnode.state.focusMission,
+          focusMission: this.focusMission.bind(this),
         })
       )),
       m('.scoreboard__overlay', {
-        className: vnode.state.focused_mission !== -1 ? ' --open' : '',
+        className: this.focused_mission !== -1 ? ' --open' : '',
       }, data.missions.map(
         (mission, key) => m(OverlayMission, {
           mission,
           key,
           missions,
-          focused_mission: vnode.state.focused_mission,
+          focused_mission: this.focused_mission,
         })
       )),
       m('.tools', [
         m('button.btn', {
           onclick() {
-            const initial = vnode.attrs.scorer.initialMissionsState();
+            const initial = scorer.initialMissionsState();
             Object.keys(initial).forEach(key => {
               missions[key] = initial[key];
             });
@@ -151,5 +160,5 @@ export default {
         }, trans(texts.strings.reset)),
       ]),
     ]);
-  },
+  }
 }

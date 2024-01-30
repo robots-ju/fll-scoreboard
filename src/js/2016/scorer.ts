@@ -1,4 +1,4 @@
-import {AbstractScorer, MissionObject} from "../interfaces/ChallengeYear";
+import {AbstractScorer, MissionObject} from '../interfaces/ChallengeYear';
 
 enum Warnings2016 {
   m01_cannot_score_bonus_alone,

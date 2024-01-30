@@ -2,13 +2,17 @@ import * as m from 'mithril';
 import OverlayImageGallery from './OverlayImageGallery';
 import icon from '../helpers/icon';
 import trans from '../helpers/trans';
-import {MissionObject, Option, Task} from "../interfaces/ChallengeYear";
+import {MissionObject, Option, Task} from '../interfaces/ChallengeYear';
 
-export default {
-  view(vnode) {
-    const task = vnode.attrs.task as Task;
-    const option = vnode.attrs.option as Option;
-    const missions = vnode.attrs.missions as MissionObject;
+interface OverlayOptionBooleanAttrs {
+  task: Task
+  option: Option
+  missions: MissionObject
+}
+
+export default class OverlayOptionBoolean implements m.ClassComponent<OverlayOptionBooleanAttrs> {
+  view(vnode: m.Vnode<OverlayOptionBooleanAttrs>) {
+    const {task, option, missions} = vnode.attrs;
 
     return m('label.option', [
       m('input[type=checkbox]', {
@@ -38,5 +42,5 @@ export default {
         ]),
       ]),
     ]);
-  },
+  }
 }

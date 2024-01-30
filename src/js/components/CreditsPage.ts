@@ -1,6 +1,6 @@
 import * as m from 'mithril';
 
-export default {
+export default class CreditsPage implements m.ClassComponent {
   view() {
     return [
       m('header.scoreboard__header', [
@@ -54,7 +54,7 @@ export default {
           'English mission descriptions are copied from the official handbook.',
         ]),
         m('p', [
-          'French mission descriptions are copied from the EPFL handbook (2016-2019) or HANDS on TECHNOLOGY handbook (2020-2021).',
+          'French mission descriptions are copied from the EPFL handbook (2016-2019) or HANDS on TECHNOLOGY handbook (2020-).',
         ]),
       ]),
     ];

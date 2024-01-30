@@ -1,5 +1,5 @@
-import {AbstractScorer, MissionObject} from "../interfaces/ChallengeYear";
-import {booleanMission, numericMission} from "../helpers/missionStateRead";
+import {AbstractScorer, MissionObject} from '../interfaces/ChallengeYear';
+import {booleanMission, numericMission} from '../helpers/missionStateRead';
 
 enum Warnings2017 {
   m08_max_value_exceeded,

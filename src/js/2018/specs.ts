@@ -4,7 +4,7 @@
  * @license MIT
  */
 
-import {FllScorer} from "./scorer";
+import {FllScorer} from './scorer';
 
 const scorer = new FllScorer();
 

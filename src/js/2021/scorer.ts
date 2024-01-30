@@ -1,5 +1,5 @@
-import {AbstractScorer, MissionObject} from "../interfaces/ChallengeYear";
-import {booleanMission, numericMission} from "../helpers/missionStateRead";
+import {AbstractScorer, MissionObject} from '../interfaces/ChallengeYear';
+import {booleanMission, numericMission} from '../helpers/missionStateRead';
 
 enum Warnings2021 {
   m02_cannot_score_both,

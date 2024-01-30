@@ -1,14 +1,18 @@
 import * as m from 'mithril';
 import trans from '../helpers/trans';
-import {Mission, MissionObject} from "../interfaces/ChallengeYear";
+import {Mission, MissionObject} from '../interfaces/ChallengeYear';
 
-export default {
-  view(vnode) {
+interface FieldMissionAttrs {
+  key: number
+  mission: Mission
+  missions: MissionObject
+  focusMission: (key: number) => void
+}
+
+export default class FieldMission implements m.ClassComponent<FieldMissionAttrs> {
+  view(vnode: m.Vnode<FieldMissionAttrs>) {
     // Current mission description from missions.json
-    const mission = vnode.attrs.mission as Mission;
-
-    // Current game state
-    const missions = vnode.attrs.missions as MissionObject;
+    const {mission, missions} = vnode.attrs;
 
     let scoring = false;
     let score = 0;
@@ -65,5 +69,5 @@ export default {
       ]),
       m('.label', trans(mission.title)),
     ]);
-  },
+  }
 }

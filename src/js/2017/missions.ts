@@ -1,4 +1,4 @@
-import {Year} from "../interfaces/ChallengeYear";
+import {Year} from '../interfaces/ChallengeYear';
 
 const data: Year = {
   meta: {

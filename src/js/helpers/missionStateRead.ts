@@ -1,4 +1,4 @@
-import {MissionObject} from "../interfaces/ChallengeYear";
+import {MissionObject} from '../interfaces/ChallengeYear';
 
 /**
  * Read and prepare the value of a boolean mission

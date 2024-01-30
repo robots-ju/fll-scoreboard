@@ -1,8 +1,12 @@
 import * as m from 'mithril';
 import Configuration from '../utils/Configuration';
 
-export default {
-  view(vnode) {
+interface OverlayImageGalleryAttrs {
+  images: string[]
+}
+
+export default class OverlayImageGallery implements m.ClassComponent<OverlayImageGalleryAttrs> {
+  view(vnode: m.Vnode<OverlayImageGalleryAttrs>) {
     return m('.images', vnode.attrs.images.map(
       (image, key) => m('.image', {
         key,
@@ -11,5 +15,5 @@ export default {
         },
       })
     ));
-  },
+  }
 }

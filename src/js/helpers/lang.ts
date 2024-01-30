@@ -1,9 +1,9 @@
 export default {
-  language: null,
-  setLang(lang) {
+  language: null as string | null,
+  setLang(lang: string) {
     this.language = lang;
   },
-  getLang() {
+  getLang(): string {
     if (this.language === null) {
       if (window.navigator.language.indexOf('fr') !== -1) {
         this.language = 'fr';
