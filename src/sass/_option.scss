@@ -18,7 +18,10 @@
 
   .numbers-input {
     display: flex;
-    flex-wrap: wrap;
+
+    &.numbers-input-many {
+      flex-wrap: wrap;
+    }
 
     .number {
       cursor: pointer;

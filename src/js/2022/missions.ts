@@ -56,6 +56,12 @@ const data: Year = {
           ],
         },
       ],
+      constraints: [
+        {
+          en: 'During the pre-match inspection',
+          fr: 'Au cours de l\'inspection d\'avant-match',
+        },
+      ],
     },
     {
       number: 1,
@@ -83,12 +89,6 @@ const data: Year = {
               ],
             },
           ],
-        },
-      ],
-      constraints: [
-        {
-          en: 'During the pre-match inspection',
-          fr: 'Au cours de l\'inspection d\'avant-match',
         },
       ],
     },

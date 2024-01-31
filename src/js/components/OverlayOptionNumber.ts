@@ -38,8 +38,8 @@ export default class OverlayOptionNumber implements m.ClassComponent<OverlayOpti
       if (option.colors_list && number > 0 && indexForThisNumbersPointsOrLabel < option.colors_list.length) {
         // Color values from https://rebrickable.com/colors/
         switch (option.colors_list[indexForThisNumbersPointsOrLabel]) {
-          case 'blue':
-            color = '#36AEBF'; // Medium Azure
+          case 'dark-blue':
+            color = '#0A3463'; // Dark Blue
             break;
           case 'dark-green':
             color = '#237841';//green
@@ -47,14 +47,23 @@ export default class OverlayOptionNumber implements m.ClassComponent<OverlayOpti
           case 'grey':
             color = '#6D6E5C'; // dark grey
             break;
+          case 'light-blue':
+            color = '#9FC3E9'; // Bright Light Blue
+            break;
           case 'light-green':
             color = '#7DB538'; // bright green
             break;
           case 'magenta':
             color = '#923978';
             break;
+          case 'medium-blue':
+            color = '#36AEBF'; // Medium Azure
+            break;
           case 'orange':
             color = '#FE8A18';
+            break;
+          case 'pink':
+            color = '#FC97AC';
             break;
           case 'red':
             color = '#C91A09';
@@ -82,8 +91,10 @@ export default class OverlayOptionNumber implements m.ClassComponent<OverlayOpti
       ]));
     }
 
+    const inputsGroup = m('.numbers-input' + (inputs.length > 4 ? '.numbers-input-many' : ''), inputs);
+
     if (controlOnly) {
-      return m('.scoreboard__option', m('.numbers-input', inputs));
+      return m('.scoreboard__option', inputsGroup);
     }
 
     return m('.scoreboard__option', [
@@ -97,7 +108,7 @@ export default class OverlayOptionNumber implements m.ClassComponent<OverlayOpti
           m('span.title', trans(option.title)),
           option.points && m('span.points', (option.points > 0 ? '+' : '') + option.points),
         ]),
-        m('.numbers-input', inputs),
+        inputsGroup,
       ]),
     ]);
   }

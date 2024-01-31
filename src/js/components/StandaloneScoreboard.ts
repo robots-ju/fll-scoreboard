@@ -3,8 +3,6 @@ import Scoreboard from './Scoreboard';
 import {NumericHashReader} from '../utils/NumericHashReader';
 import {AbstractScorer, MissionObject, Year} from '../interfaces/ChallengeYear';
 
-const EMPTY_HASH = /^#0+$/;
-
 export class StandaloneScoreboardAttrs {
   data: Year
   scorer: AbstractScorer<MissionObject, any>
@@ -26,7 +24,7 @@ export default class StandaloneScoreboard implements m.ClassComponent<Standalone
 
         let initialMissionsState: MissionObject;
 
-        if (hash.match(/^[0-6]+$/)) {
+        if (hash.match(/^[0-7]+$/)) {
           initialMissionsState = this.hashReader.decode(hash);
         } else {
           initialMissionsState = JSON.parse(decodeURIComponent(hash));
@@ -50,16 +48,18 @@ export default class StandaloneScoreboard implements m.ClassComponent<Standalone
 
     const missionsJson = JSON.stringify(this.missions);
 
-    let missionHash = '#' + this.hashReader.encode(this.missions);
-
-    if (EMPTY_HASH.test(missionHash)) {
-      missionHash = '';
-    }
-
     // We need to check lastMissions because we only want to update the url when the data actually changed
     // If we compared with the current location hash, it would try updating the hash when we're navigating away from the page to a page that doesn't have a hash
     if (missionsJson !== this.lastMissions) {
-      window.location.hash = missionHash;
+      const missionHash = this.hashReader.encode(this.missions);
+      const initialMissionHash = this.hashReader.encode(scorer.initialMissionsState());
+
+      if (missionHash === initialMissionHash) {
+        // Remove hash without causing a jump
+        window.history.pushState('', document.title, window.location.pathname);
+      } else {
+        window.location.hash = '#' + missionHash;
+      }
 
       this.lastMissions = missionsJson;
     }

@@ -124,7 +124,7 @@ const data: Year = {
               type: 'number',
               max: 3,
               points_list: [10, 15, 20],
-              colors_list: ['magenta', 'yellow', 'blue'],
+              colors_list: ['magenta', 'yellow', 'medium-blue'],
               images: [
                 '2020/m02.jpg',
               ],
@@ -646,7 +646,7 @@ const data: Year = {
               type: 'number',
               max: 3,
               points_list: [10, 15, 20],
-              colors_list: ['blue', 'magenta', 'yellow'],
+              colors_list: ['medium-blue', 'magenta', 'yellow'],
               images: [
                 '2020/m13.jpg',
               ],

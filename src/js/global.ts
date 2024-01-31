@@ -56,6 +56,10 @@ interface YearLink {
 
 const years: YearLink[] = [
   {
+    scorer: new (require('./2023/scorer').FllScorer),
+    data: require('./2023/missions').data,
+  },
+  {
     scorer: new (require('./2022/scorer').FllScorer),
     data: require('./2022/missions').data,
   },

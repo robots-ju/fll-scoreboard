@@ -40,7 +40,8 @@ export default class OverlayOptionBoolean implements m.ClassComponent<OverlayOpt
         m('.description', [
           m('span.fake-checkbox', icon('check')),
           m('span.title', trans(controlOnly ? texts.strings.yes : option.title)),
-          option.points && m('span.points', '+' + option.points),
+          option.points ? m('span.points', '+' + option.points) :null,
+          option.variable_points ? m('span.points', icon('asterisk')):null,
         ]),
       ]),
     ]);

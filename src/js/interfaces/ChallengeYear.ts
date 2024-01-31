@@ -46,13 +46,17 @@ export interface Option {
   type: "boolean" | "number"
   points?: number
   points_list?: number[]
+  variable_points?: boolean
   colors_list?: (
-    'blue' |
+    'dark-blue' |
     'dark-green' |
     'grey' |
+    'light-blue' |
     'light-green' |
     'magenta' |
+    'medium-blue' |
     'orange' |
+    'pink' |
     'red' |
     'yellow'
     )[]
