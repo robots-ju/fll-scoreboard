@@ -63,13 +63,19 @@ export default class Scoreboard implements m.ClassComponent<ScoreboardAttrs> {
     const output = scorer.computeMissions(missions);
     const score = output.score;
 
+    const style: any = {
+      '--challenge-main-color': data.meta.colors.main,
+      '--challenge-missions-color': data.meta.colors.missions,
+      '--challenge-scoring-color': data.meta.colors.scoring,
+      '--challenge-penalties-color': data.meta.colors.penalties,
+    }
+
+    if (data.meta.no_equipment_constraint_icon) {
+      style['--challenge-no-equipment-constraint-image'] = 'url(' + Configuration.imagePath + data.meta.no_equipment_constraint_icon + ')';
+    }
+
     return m('div', {
-      style: {
-        '--challenge-main-color': data.meta.colors.main,
-        '--challenge-missions-color': data.meta.colors.missions,
-        '--challenge-scoring-color': data.meta.colors.scoring,
-        '--challenge-penalties-color': data.meta.colors.penalties,
-      },
+      style,
     }, [
       m('header.scoreboard__header', [
         m('i.header-block.fas.fa-bars.sidenav-trigger', {

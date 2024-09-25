@@ -2,6 +2,7 @@ import * as m from 'mithril';
 import trans from '../helpers/trans';
 import OverlayTask from './OverlayTask';
 import {Mission, MissionObject} from '../interfaces/ChallengeYear';
+import NoEquipmentIndicator from './NoEquipmentIndicator';
 
 interface OverlayMissionAttrs {
   key: number
@@ -25,8 +26,9 @@ export default class OverlayMission implements m.ClassComponent<OverlayMissionAt
     return m('.scoreboard__overlay__mission', {
       className,
     }, m('.content', [
+      mission.no_equipment_constraint ? m(NoEquipmentIndicator) : null,
       m('h1', (mission.number === null ? '' : ('M' + mission.number + ' ')) + trans(mission.title)),
-      mission.description && m('p', trans(mission.description)),
+      mission.description ? m('p', trans(mission.description)) : null,
       m('.tasks', {
         className: mission.tasks.length > 1 ? ' multiple' : '',
       }, mission.tasks.map(

@@ -49,6 +49,14 @@
       margin-top: 100px;
     }
 
+    h1 {
+      margin: 5px 0 15px;
+    }
+
+    .no_equipment_constraint_indicator {
+      margin-top: 3px;
+    }
+
     .images {
       height: 300px;
       display: flex;
@@ -87,5 +95,22 @@
         height: 100px;
       }
     }
+  }
+}
+
+.no_equipment_constraint_indicator {
+  width: 40px;
+  height: 40px;
+  background-image: var(--challenge-no-equipment-constraint-image);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  float: right;
+
+  // Since the red color is a bit too bright, we can tone it down and reveal the native color on hover
+  opacity: 0.6;
+
+  &:hover {
+    opacity: 1;
   }
 }

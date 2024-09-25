@@ -3,6 +3,7 @@ import OverlayOptionBoolean from './OverlayOptionBoolean';
 import OverlayOptionNumber from './OverlayOptionNumber';
 import {MissionObject, Year} from '../interfaces/ChallengeYear';
 import trans from '../helpers/trans';
+import NoEquipmentIndicator from './NoEquipmentIndicator';
 
 interface GridBoardAttrs {
   data: Year
@@ -20,6 +21,7 @@ export default class GridBoard implements m.ClassComponent<GridBoardAttrs> {
     }, data.missions.map((mission, missionIndex) => {
       return [
         m('.scoreboard__grid__mission', [
+          mission.no_equipment_constraint ? m(NoEquipmentIndicator) : null,
           m('.number', {
             onclick() {
               focusMission(missionIndex);

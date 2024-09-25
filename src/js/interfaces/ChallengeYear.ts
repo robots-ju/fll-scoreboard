@@ -12,6 +12,7 @@ export interface Year {
       scoring: string
       penalties: string
     }
+    no_equipment_constraint_icon?: string
   }
   warnings: any
   missions: Mission[]
@@ -24,6 +25,7 @@ export interface Mission {
   position: Position
   tasks: Task[]
   constraints?: TranslatedText[]
+  no_equipment_constraint?: boolean
 }
 
 export interface Position {

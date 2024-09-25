@@ -14,6 +14,8 @@ export default class CreditsPage implements m.ClassComponent {
       ]),
       m('.textpage', [
         m('h1', 'Credits'),
+        m('p', 'This is an unofficial scoreboard for the FIRST® LEGO® League Challenge robot game.'),
+        m('p', 'It is used as the official scoreboard for some off-season events organised by Robots-JU.'),
         m('p', [
           'Made by ',
           m('a', {
@@ -39,7 +41,7 @@ export default class CreditsPage implements m.ClassComponent {
         m('p', [
           'Logos and images come from for the ',
           m('a', {
-            href: 'http://www.firstlegoleague.org/challenge',
+            href: 'https://www.firstlegoleague.org/season',
           }, 'FIRST® LEGO® League'),
           ' Robot Game material.',
         ]),

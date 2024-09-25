@@ -36,18 +36,17 @@ The test requires the application compiled with Mix first (`yarn dev`), then the
 
 ## Image copyrights
 
-The table overview images and the season logos come from the official [Robot Game material](http://www.firstlegoleague.org/challenge).
+The table overview images and the season logos come from the official [Robot Game material](https://www.firstlegoleague.org/season).
 The images were resized and compressed to a more suitable size.
 
-The missions illustrations displayed with each task come from the [Missions overview page](https://www.first-lego-league.org/en/season/robot-game/missions.html) on the FLL Europe website by HANDS on TECHNOLOGY.
-Thanks for making them, they are great !
+The missions illustrations displayed with each task come from the official robot game handbook, completed with a few original images.
 
 ## Text copyrights
 
-Applies to all mission strings in `missions.json`.
+Applies to all mission strings in the `missions.ts` files.
 
-- The English rules are copied from the Hands on Technology [Missions overview page](https://www.first-lego-league.org/en/season/robot-game/missions.html).
-- The French rules are copied from the PDF hosted on the EPFL [FLL rules page](https://www.epfl.ch/education/education-and-science-outreach/fr/jeunepublic/fll/fll-regles/).
+- The English rules are copied from the official robot game handbook distributed by HANDS on TECHNOLOGY.
+- The French rules are copied from the translated handbook distributed by the EPFL (until 2019) or HANDS on TECHNOLOGY (since 2020).
 
 ## Code license
 

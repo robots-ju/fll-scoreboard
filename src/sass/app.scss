@@ -4,6 +4,7 @@
 @import "~materialize-css/sass/components/navbar";
 @import "~materialize-css/sass/components/waves";
 @import "~materialize-css/sass/components/sidenav";
+@import "~materialize-css/sass/components/tooltip";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/solid";
 @import "variables";
@@ -31,4 +32,8 @@
   width: 500px;
   max-width: 100%;
   margin: 100px auto; // Top padding so that it doesn't go under the header
+}
+
+.material-tooltip {
+  width: 400px;
 }
