@@ -60,7 +60,9 @@
 
       .image {
         flex-grow: 1;
-        background-size: cover;
+        background-color: white; // It won't be visible, except when the pulsing effect is triggered on buttons
+        background-repeat: no-repeat;
+        background-size: contain;
         background-position: center center;
       }
 
