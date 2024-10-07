@@ -340,7 +340,7 @@ const data: Year = {
           options: [
             {
               title: {
-                en: 'he treasure chest is completely outside the kraken\'s nest',
+                en: 'The treasure chest is completely outside the kraken\'s nest',
                 fr: 'Le coffre au trésor est complètement en dehors de l\'antre du Kraken',
               },
               handle: 'm07_activated',
