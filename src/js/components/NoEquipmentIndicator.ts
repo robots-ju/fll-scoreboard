@@ -9,7 +9,7 @@ export default class NoEquipmentIndicator implements m.ClassComponent {
     const title = trans(texts.strings.no_equipment_contraint_definition);
 
     // Allow using the component without Materialize. We'll just fall back to a title attribute
-    return m('.no_equipment_constraint_indicator', M ? {
+    return m('.no_equipment_constraint_indicator', window.M ? {
       'data-position': 'left',
       'data-tooltip': title,
     } : {
@@ -18,7 +18,7 @@ export default class NoEquipmentIndicator implements m.ClassComponent {
   }
 
   oncreate(vnode) {
-    this.tooltip = M ? M.Tooltip.init(vnode.dom) : null;
+    this.tooltip = window.M ? M.Tooltip.init(vnode.dom) : null;
   }
 
   onremove(vnode) {
