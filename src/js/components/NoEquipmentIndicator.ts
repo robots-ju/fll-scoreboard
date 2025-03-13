@@ -6,17 +6,24 @@ export default class NoEquipmentIndicator implements m.ClassComponent {
   tooltip: M.Tooltip = null;
 
   view() {
-    return m('.no_equipment_constraint_indicator', {
+    const title = trans(texts.strings.no_equipment_contraint_definition);
+
+    // Allow using the component without Materialize. We'll just fall back to a title attribute
+    return m('.no_equipment_constraint_indicator', M ? {
       'data-position': 'left',
-      'data-tooltip': trans(texts.strings.no_equipment_contraint_definition),
+      'data-tooltip': title,
+    } : {
+      title,
     });
   }
 
   oncreate(vnode) {
-    this.tooltip = M.Tooltip.init(vnode.dom);
+    this.tooltip = M ? M.Tooltip.init(vnode.dom) : null;
   }
 
   onremove(vnode) {
-    this.tooltip.destroy();
+    if (this.tooltip) {
+      this.tooltip.destroy();
+    }
   }
 }
