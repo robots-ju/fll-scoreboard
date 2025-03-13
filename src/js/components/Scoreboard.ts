@@ -12,6 +12,8 @@ export interface ScoreboardAttrs {
   missions: MissionObject
   data: Year
   scorer: AbstractScorer<MissionObject, any>
+  // When specified, the localStorage value will be ignored and the toggle button will be hidden
+  gridMode?: boolean
 }
 
 export default class Scoreboard implements m.ClassComponent<ScoreboardAttrs> {
@@ -23,7 +25,9 @@ export default class Scoreboard implements m.ClassComponent<ScoreboardAttrs> {
     // Need to copy this value because it will be used in a callback without access to vnode
     this.missionsCount = vnode.attrs.data.missions.length;
 
-    this.gridMode = window.localStorage.getItem('gridMode') === '1';
+    // When the mode is provided through attrs, the local variable will not be used
+    // But setting it to the same value during init ensures the logic below for the wizard runs as expected
+    this.gridMode = typeof vnode.attrs.gridMode !== 'undefined' ? vnode.attrs.gridMode : window.localStorage.getItem('gridMode') === '1';
 
     // The index of the mission to display in extended format
     // If the viewport is large enough we open the first mission in the wizard
@@ -141,7 +145,7 @@ export default class Scoreboard implements m.ClassComponent<ScoreboardAttrs> {
           }, trans(warning_data).replace('%warning%', warning));
         }
       )),
-      this.gridMode ? m(GridBoard, {
+      (typeof vnode.attrs.gridMode !== 'undefined' ? vnode.attrs.gridMode : this.gridMode) ? m(GridBoard, {
         data,
         missions,
         focused_mission: this.focused_mission,
@@ -175,7 +179,7 @@ export default class Scoreboard implements m.ClassComponent<ScoreboardAttrs> {
           ' ',
           trans(texts.strings.reset),
         ]),
-        m('button.btn', {
+        typeof vnode.attrs.gridMode === 'undefined' ? m('button.btn', {
           onclick: () => {
             this.gridMode = !this.gridMode;
             this.focused_mission = -1;
@@ -189,7 +193,7 @@ export default class Scoreboard implements m.ClassComponent<ScoreboardAttrs> {
           icon('list'),
           ' ',
           trans(texts.strings.grid_mode),
-        ]),
+        ]) : null,
       ]),
     ]);
   }
