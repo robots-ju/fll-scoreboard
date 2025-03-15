@@ -3,8 +3,11 @@ import {booleanMission, numericMission} from '../helpers/missionStateRead';
 
 enum Warnings2024 {
   m01_bonus_requirement_not_met,
+  m02_must_score_first,
   m03_max_three_segments,
+  m04_must_score_first,
   m08_max_four_segments,
+  m09_must_score_first,
   m11_max_two_whales,
   m12_max_five_krill,
   m14_max_two_trident_pieces,
@@ -128,12 +131,18 @@ export class FllScorer extends AbstractScorer<MissionObject2024, Warnings2024> {
      |
      */
 
-    if (booleanMission<MissionObject2024>(missions, 'm02_cave')) {
+    const m02_cave = booleanMission<MissionObject2024>(missions, 'm02_cave');
+
+    if (m02_cave) {
       score += 20;
     }
 
     if (booleanMission<MissionObject2024>(missions, 'm02_habitat')) {
       score += 10;
+
+      if (!m02_cave) {
+        warnings.push(Warnings2024.m02_must_score_first);
+      }
     }
 
     /*
@@ -160,12 +169,18 @@ export class FllScorer extends AbstractScorer<MissionObject2024, Warnings2024> {
      |
      */
 
-    if (booleanMission<MissionObject2024>(missions, 'm04_nursery')) {
+    const m04_nursery = booleanMission<MissionObject2024>(missions, 'm04_nursery');
+
+    if (m04_nursery) {
       score += 20;
     }
 
     if (booleanMission<MissionObject2024>(missions, 'm04_hanging')) {
       score += 20;
+
+      if (!m04_nursery) {
+        warnings.push(Warnings2024.m04_must_score_first);
+      }
     }
 
     /*
@@ -218,12 +233,18 @@ export class FllScorer extends AbstractScorer<MissionObject2024, Warnings2024> {
      |
      */
 
-    if (booleanMission<MissionObject2024>(missions, 'm09_released')) {
+    const m09_released = booleanMission<MissionObject2024>(missions, 'm09_released');
+
+    if (m09_released) {
       score += 20;
     }
 
     if (booleanMission<MissionObject2024>(missions, 'm09_seep')) {
       score += 10;
+
+      if (!m09_released) {
+        warnings.push(Warnings2024.m09_must_score_first);
+      }
     }
 
     /*

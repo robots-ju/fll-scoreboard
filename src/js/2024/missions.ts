@@ -22,6 +22,21 @@ const data: Year = {
       en: 'Both options must be selected to score the bonus on mission 1',
       fr: 'Les 2 options doivent être sélectionnées pour marquer le bonus de la mission 1',
     },
+    m02_must_score_first: {
+      mission: 1,
+      en: 'First part of mission 2 is required with second part',
+      fr: 'La première partie de la mission 2 doit être réussie avec la seconde partie',
+    },
+    m04_must_score_first: {
+      mission: 1,
+      en: 'First part of mission 4 is required with second part',
+      fr: 'La première partie de la mission 2 doit être réussie avec la seconde partie',
+    },
+    m09_must_score_first: {
+      mission: 1,
+      en: 'First part of mission 9 is required with second part',
+      fr: 'La première partie de la mission 2 doit être réussie avec la seconde partie',
+    },
   },
   missions: [
     {
