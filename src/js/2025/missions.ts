@@ -71,8 +71,8 @@ const data: Year = {
         fr: 'Brossage de surface',
       },
       position: {
-        top: 52,
-        left: 14,
+        top: 40,
+        left: 15,
       },
       tasks: [
         {
@@ -118,8 +118,8 @@ const data: Year = {
         fr: 'Révélation de la carte',
       },
       position: {
-        top: 20,
-        left: 19,
+        top: 19,
+        left: 17,
       },
       tasks: [
         {
@@ -148,8 +148,8 @@ const data: Year = {
         fr: 'Exploration de la mine',
       },
       position: {
-        top: 21,
-        left: 35,
+        top: 13,
+        left: 39,
       },
       tasks: [
         {
@@ -201,8 +201,8 @@ const data: Year = {
         fr: 'Récupération délicate',
       },
       position: {
-        top: 40,
-        left: 14,
+        top: 22,
+        left: 33,
       },
       tasks: [
         {
@@ -247,8 +247,8 @@ const data: Year = {
         fr: 'Qui vivait ici ?',
       },
       position: {
-        top: 49,
-        left: 50,
+        top: 20,
+        left: 74,
       },
       tasks: [
         {
@@ -277,8 +277,8 @@ const data: Year = {
         fr: 'Forge',
       },
       position: {
-        top: 41,
-        left: 39,
+        top: 30,
+        left: 82,
       },
       tasks: [
         {
@@ -313,8 +313,8 @@ const data: Year = {
         fr: 'Levage lourd',
       },
       position: {
-        top: 54,
-        left: 37,
+        top: 19,
+        left: 89,
       },
       tasks: [
         {
@@ -342,8 +342,8 @@ const data: Year = {
         fr: 'Silo',
       },
       position: {
-        top: 78,
-        left: 58,
+        top: 49,
+        left: 85,
       },
       tasks: [
         {
@@ -372,8 +372,8 @@ const data: Year = {
         fr: 'Que trouve-t-on à vendre ?',
       },
       position: {
-        top: 60,
-        left: 60,
+        top: 44,
+        left: 67,
       },
       tasks: [
         {
@@ -418,8 +418,8 @@ const data: Year = {
         fr: 'La balance',
       },
       position: {
-        top: 19,
-        left: 55,
+        top: 51,
+        left: 58,
       },
       tasks: [
         {
@@ -463,8 +463,8 @@ const data: Year = {
         fr: 'Grue portuaire',
       },
       position: {
-        top: 25,
-        left: 68,
+        top: 79,
+        left: 58,
       },
       tasks: [
         {
@@ -509,8 +509,8 @@ const data: Year = {
         fr: 'Opération de sauvetage',
       },
       position: {
-        top: 20,
-        left: 85,
+        top: 81,
+        left: 45,
       },
       tasks: [
         {
@@ -561,8 +561,8 @@ const data: Year = {
         fr: 'Reconstruction de la statue',
       },
       position: {
-        top: 48,
-        left: 81,
+        top: 40,
+        left: 43,
       },
       tasks: [
         {
@@ -591,8 +591,8 @@ const data: Year = {
         fr: 'Forum',
       },
       position: {
-        top: 22,
-        left: 47,
+        top: 48,
+        left: 34,
       },
       tasks: [
         {
@@ -622,8 +622,8 @@ const data: Year = {
         fr: 'Marquage du site',
       },
       position: {
-        top: 82,
-        left: 35,
+        top: 65,
+        left: 16,
       },
       tasks: [
         {
